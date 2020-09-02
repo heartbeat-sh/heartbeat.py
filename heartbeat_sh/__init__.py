@@ -1,0 +1,1 @@
+from heartbeat_sh.heartbeat import HeartbeatClient
