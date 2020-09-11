@@ -1,6 +1,6 @@
 # Heartbeat.sh Python Client
 
-This is a Python client library for [heartbeat.sh](https://heartbeat.sh). Hosted on PyPI here: https://pypi.org/project/heartbeat-sh/
+This is a Python client library for [heartbeat.sh](https://heartbeat.sh).
 
 ## Usage
 
@@ -16,3 +16,6 @@ HeartbeatClient("example").send_beat(
     timedelta(days=2)
 )
 ```
+
+## Links
+- PyPI: https://pypi.org/project/heartbeat-sh/
