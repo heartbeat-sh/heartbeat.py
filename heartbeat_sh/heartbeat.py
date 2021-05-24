@@ -19,7 +19,7 @@ class HeartbeatClient:
             query += "&" if len(query) > 0 else "?"
             query += f"error={int(error_timeout.total_seconds())}"
 
-        requests.post(f"{self.base_url}beat/{name}{query}")
+        return requests.post(f"{self.base_url}beat/{name}{query}")
 
     def delete_beat(self, name):
-        requests.delete(f"{self.base_url}beat/{name}")
+        return requests.delete(f"{self.base_url}beat/{name}")
