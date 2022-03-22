@@ -11,6 +11,10 @@ class HeartbeatClient:
         self.host = "heartbeat.sh"
         self.base_url = f"{self.proto}://{self.subdomain}.{self.host}/"
 
+    def get_beats(self):
+        r = requests.get(f"{self.base_url}heartbeats")
+        return r.json()["Heartbeats"]
+
     def send_beat(self, name: str, warning_timeout: timedelta = None, error_timeout: timedelta = None):
         query = ""
         if warning_timeout is not None:
