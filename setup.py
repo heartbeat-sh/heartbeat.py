@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="heartbeat-sh",
-    version="0.1.0",
+    version="0.2.0",
     author="heartbeat.sh",
     author_email="admin@heartbeat.sh",
     description="A client library for heartbeat.sh",
