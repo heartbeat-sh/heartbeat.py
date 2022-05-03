@@ -12,10 +12,15 @@ class HeartbeatClient:
         self.base_url = f"{self.proto}://{self.subdomain}.{self.host}/"
 
     def get_beats(self):
-        r = requests.get(f"{self.base_url}heartbeats")
+        r = requests.get(f"{self.base_url}heartbeats", timeout=3)
         return r.json()["Heartbeats"]
 
-    def send_beat(self, name: str, warning_timeout: timedelta = None, error_timeout: timedelta = None):
+    def send_beat(
+        self,
+        name: str,
+        warning_timeout: timedelta = None,
+        error_timeout: timedelta = None,
+    ):
         query = ""
         if warning_timeout is not None:
             query += f"?warning={int(warning_timeout.total_seconds())}"
@@ -23,7 +28,7 @@ class HeartbeatClient:
             query += "&" if len(query) > 0 else "?"
             query += f"error={int(error_timeout.total_seconds())}"
 
-        return requests.post(f"{self.base_url}beat/{name}{query}")
+        return requests.post(f"{self.base_url}beat/{name}{query}", timeout=3)
 
     def delete_beat(self, name):
-        return requests.delete(f"{self.base_url}beat/{name}")
+        return requests.delete(f"{self.base_url}beat/{name}", timeout=3)
