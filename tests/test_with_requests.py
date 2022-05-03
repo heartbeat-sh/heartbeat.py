@@ -4,9 +4,11 @@ from datetime import timedelta
 from heartbeat_sh import HeartbeatClient
 
 
-class TestSend(unittest.TestCase):
+class TestWithRequests(unittest.TestCase):
     def test_example(self):
-        HeartbeatClient("example").send_beat("example:python", timedelta(days=1, hours=2), timedelta(days=2))
+        HeartbeatClient("example").send_beat(
+            "example:python", timedelta(days=1, hours=2), timedelta(days=2)
+        )
 
     def test_get(self):
         HeartbeatClient("example").get_beats()
